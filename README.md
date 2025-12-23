@@ -272,8 +272,247 @@
     Ex:
       =SUBSTITUTE(A1,"old","new")
 ```
-   
 
+### Date & Time Functions
+```
+1. TODAY
+    syntax
+      =TODAY()     # Current date
+    Ex:
+      =TODAY()
+```
+
+```
+2. NOW
+    syntax
+      =NOW()     # Current date & time
+    Ex:
+      =NOW()
+```
+
+```
+3. DATE
+    syntax
+      =DATE(year, month, day)     # Creates date
+    Ex:
+      =DATE(2024,12,25)
+```
+
+```
+4. DAY
+    syntax
+      =DAY(date)     # Extracts day
+    Ex:
+      =DAY(A1)
+```
+
+```
+5. MONTH
+    syntax
+      =MONTH(date)     # Extracts month
+    Ex:
+      =MONTH(A1)
+```
+
+```
+6. YEAR
+    syntax
+      =YEAR(date)     # Extracts year
+    Ex:
+      =YEAR(A1)
+```
+
+```
+7. EOMONTH
+    syntax
+      =EOMONTH(start_date, months)     # End of month
+    Ex:
+      =EOMONTH(TODAY(),0)
+```
+
+```
+8. WORKDAY
+    syntax
+      =WORKDAY(start_date, days, [holidays])     # Workday calculation
+    Ex:
+      =WORKDAY(A1,10)
+```
+
+```
+9. NETWORKDAYS
+    syntax
+      =NETWORKDAYS(start_date, end_date, [holidays])     # Working days between
+    Ex:
+      =NETWORKDAYS(A1,B1)
+```
+
+```
+10. DATEDIF
+    syntax
+      =DATEDIF(start_date, end_date, unit)     # Date difference
+    Ex:
+      =DATEDIF(A1,B1,"D")
+```
+
+```
+11. WEEKDAY
+    syntax
+      =WEEKDAY(date, [return_type])     # Day of week
+    Ex:
+      =WEEKDAY(A1,2)
+```
+
+### Logical Functions
+
+```
+1. IF
+    syntax
+      =IF(logical_test, value_if_true, value_if_false)     # Conditional logic
+    Ex:
+      =IF(A1>100,"High","Low")
+```
+
+```
+2. AND
+    syntax
+      =AND(logical1, logical2, ...)     # All conditions true	
+    Ex:
+      =AND(A1>0,A1<100)
+```
+
+```
+3. OR
+    syntax
+      =OR(logical1, logical2, ...)     # Any condition true
+    Ex:
+      =OR(A1="Yes",B1="Yes")
+```
+
+```
+4. NOT
+    syntax
+      =NOT(logical)     # Reverses logic
+    Ex:
+      =NOT(A1>100)
+```
+
+```
+5. IFERROR
+    syntax
+      =IFERROR(value, value_if_error)     # Error handling
+    Ex:
+      =IFERROR(1/0,"Error")
+```
+
+```
+6. IFS
+    syntax
+      =IFS(logical_test1, value_if_true1, ...)     # Multiple IFs (Excel 2016+)	
+    Ex:
+      =IFS(A1>100,"High",A1>50,"Medium",TRUE,"Low")
+```
+
+```
+7. SWITCH
+    syntax
+      =SWITCH(expression, value1, result1, ...)     # Switch statement
+    Ex:
+      =SWITCH(A1,1,"One",2,"Two")
+```
+
+### Financial Functions
+```
+1. PMT
+    syntax
+      =PMT(rate, nper, pv, [fv], [type])     # Loan payment
+    Ex:
+      =PMT(5%/12,60,20000)
+```
+
+```
+2. FV
+    syntax
+      =FV(rate, nper, pmt, [pv], [type])     # Future value
+    Ex:
+      =FV(5%/12,60,-200)
+```
+
+```
+3. PV
+    syntax
+      =PV(rate, nper, pmt, [fv], [type])     # Present value
+    Ex:
+      =PV(5%/12,60,-200)
+```
+
+```
+4. NPV
+    syntax
+      =NPV(rate, value1, value2, ...)     # Net present value
+    Ex:
+      =NPV(10%,B2:B10)
+```
+
+```
+5. IRR
+    syntax
+      =IRR(values, [guess])     # Internal rate of return
+    Ex:
+      =IRR(B2:B10)
+```
+
+```
+6. RATE
+    syntax
+      =RATE(nper, pmt, pv, [fv], [type], [guess])     # Interest rate
+    Ex:
+      =RATE(60,-200,10000)
+```
+
+### Formula Tips & Tricks
+```
+Absolute Reference:     $A$1   (Fixed column and row)
+Mixed Reference:        $A1    (Fixed column only)
+Mixed Reference:        A$1    (Fixed row only)
+Relative Reference:     A1     (Changes when copied)
+
+Named Range:           Define name in Formulas tab
+                      =SUM(Sales_Data)
+
+Array Formula:         {=SUM(A1:A10*B1:B10)} (Ctrl+Shift+Enter)
+
+Spill Operator:        =A1# (Excel 365, references spilled range)
+```
+
+### Common Formula Errors
+```
+#DIV/0!    Division by zero
+#N/A       Value not available
+#NAME?     Unrecognized text in formula
+#NULL!     Incorrect range operator
+#NUM!      Problem with number
+#REF!      Invalid cell reference
+#VALUE!    Wrong type of argument
+#######    Column too narrow
+```
+
+### Analysis Functions
+```
+=FORECAST.ETS()            # Exponential smoothing forecast
+=TREND()                   # Linear trend line
+=GROWTH()                  # Exponential growth trend
+=CORREL()                  # Correlation coefficient
+=SLOPE()                   # Slope of linear regression
+=INTERCEPT()               # Y-intercept of regression
+=LINEST()                  # Multiple linear regression
+=LOGEST()                  # Exponential regression
+=FREQUENCY()               # Frequency distribution
+=RANK()                    # Rank of value in list
+=PERCENTILE()              # Value at percentile
+=QUARTILE()                # Quartile value
+=STDEV()                   # Standard deviation
+=VAR()                     # Variance
+```
 
 
 
