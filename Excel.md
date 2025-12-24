@@ -514,14 +514,146 @@ Spill Operator:        =A1# (Excel 365, references spilled range)
 =VAR()                     # Variance
 ```
 
+### PivotTable Calculations
+```
+Sum:           Total of values
+Count:         Number of items
+Average:       Mean value
+Max/Min:       Largest/smallest value
+Product:       Multiply values
+StdDev/Var:    Standard deviation/Variance
+% of Total:    Percentage of grand total
+% of Row:      Percentage of row total
+% of Column:   Percentage of column total
+Running Total: Cumulative sum
+Rank:          Rank within group
+```
 
+### GETPIVOTDATA Function
+```
+=GETPIVOTDATA("Sum of Sales", $A$3, "Region", "North", "Product", "Widget")
+Def: Extracts data from PivotTable programmatically
+```
 
+ ## DATA VALIDATION
+ ### Validation Types
+```
+1. Whole Number:      Allow only integers
+   =AND(A1>=0, A1<=100)
 
+2. Decimal:           Allow decimals
+   =A1>0
 
+3. List:              Dropdown list
+   =$F$2:$F$10
 
+4. Date:              Date restrictions
+   =A1>=TODAY()
 
+5. Time:              Time restrictions
+   =AND(A1>=TIME(9,0,0), A1<=TIME(17,0,0))
 
+6. Text Length:       Character limit
+   =LEN(A1)<=255
 
+7. Custom:            Formula-based
+   =ISNUMBER(SEARCH("@",A1))
+```
+
+### Dynamic Dropdown Lists
+```
+Using Tables:       =TableName[ColumnName]
+Using OFFSET:       =OFFSET($A$1,0,0,COUNTA($A:$A),1)
+Dependent Lists:    =INDIRECT(A1)  (where A1 has category name)
+```
+
+### Custom Formulas
+```
+Even rows:           =MOD(ROW(),2)=0
+Weekends:            =OR(WEEKDAY(A1)=1, WEEKDAY(A1)=7)
+Expired dates:       =A1<TODAY()
+Duplicates:          =COUNTIF($A$1:$A$10,A1)>1
+Above average:       =A1>AVERAGE($A$1:$A$10)
+Contains text:       =ISNUMBER(SEARCH("error",A1))
+```
+
+## POWER TOOLS
+### Power Query (Get & Transform)
+```
+Access: Data → Get Data → From Various Sources
+
+Key Features:
+- Clean and transform data
+- Merge multiple files
+- Unpivot data (columns to rows)
+- Group and aggregate
+- Create custom columns
+
+Common Steps:
+1. Remove duplicates
+2. Change data types
+3. Filter rows
+4. Split columns
+5. Pivot/unpivot
+6. Merge queries
+7. Append queries
+```
+
+### Power Pivot
+```
+Access: File → Options → Add-ins → COM Add-ins → Power Pivot
+
+Key Features:
+- Handle millions of rows
+- Create data models
+- DAX formulas
+- Relationships between tables
+- Advanced calculations
+
+DAX Functions:
+CALCULATE(), FILTER(), SUMX(), RELATED(), 
+ALL(), VALUES(), DISTINCT(), COUNTROWS()
+```
+
+### Dynamic Arrays (Excel 365)
+```
+UNIQUE()       # Extract unique values
+FILTER()       # Filter range based on criteria
+SORT()         # Sort range
+SORTBY()       # Sort by another range
+SEQUENCE()     # Generate sequence of numbers
+RANDARRAY()    # Array of random numbers
+XLOOKUP()      # Modern lookup function
+LET()          # Assign names to calculations
+LAMBDA()       # Create custom functions
+```
+
+### LET Function Example
+```
+=LET(
+    sales, A2:A100,
+    target, 10000,
+    total, SUM(sales),
+    result, IF(total>target,"Met","Not Met"),
+    result
+)
+```
+
+### Headers & Footers
+```
+Access: Insert → Header & Footer
+
+Built-in Codes:
+&P            Current page number
+&N            Total pages
+&D            Current date
+&T            Current time
+&F            File name
+&A            Sheet name
+&"FontName"   Change font
+&[Tab]        Sheet name
+&[Path]       File path
+```
 
 
 
